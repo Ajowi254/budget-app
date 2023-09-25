@@ -6,8 +6,8 @@ const Transactions = () => {
     const [budget, setBudget] = useState(1000);  // Start with a budget of 1000
 
     useEffect(() => {
-        // Fetch transactions from Plaid API
-        axios.get('/api/transactions')
+        // Fetch transactions from your local API
+        axios.get('http://localhost:3001/api/transactions')
             .then(response => {
                 const transactions = response.data;
                 setTransactions(transactions);
@@ -31,8 +31,8 @@ const Transactions = () => {
     }, []);
 
     const deleteTransaction = (id) => {
-        // Delete transaction from Plaid API
-        axios.delete(`/api/transactions/${id}`)
+        // Delete transaction from your local API
+        axios.delete(`http://localhost:3001/api/transactions/${id}`)
             .then(response => {
                 // Remove the deleted transaction from state
                 const newTransactions = transactions.filter(transaction => transaction.id !== id);
