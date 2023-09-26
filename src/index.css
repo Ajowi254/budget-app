@@ -11,3 +11,78 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Styles for the Add Account page */
+.add-account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-account h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.add-account .option {
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-account .option:last-child {
+  margin-bottom: 0;
+}
+
+/* Styles for the Add Linked Accounts page */
+.add-linked-accounts {
+  text-align: center;
+}
+
+.add-linked-accounts h1 {
+  font-size: 24px;
+}
+
+.add-linked-accounts p {
+  font-size: 18px;
+}
+
+.add-linked-accounts button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+}
+
+/* Styles for the Select Bank Location page */
+.select-bank-location {
+  
+}
+
+.select-bank-location h1 {
+  
+}
+
+.select-bank-location .option {
+  
+}
+
+/* Styles for the Plaid page */
+.plaid {
+
+}

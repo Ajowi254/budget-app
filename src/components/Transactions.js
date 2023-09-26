@@ -10,20 +10,25 @@ const Transactions = () => {
         axios.get('http://localhost:3001/api/transactions')
             .then(response => {
                 const transactions = response.data;
-                setTransactions(transactions);
+                // Ensure transactions is an array before setting state
+                if (Array.isArray(transactions)) {
+                    setTransactions(transactions);
 
-                // Calculate the total amount of all transactions
-                const totalAmount = transactions.reduce((total, transaction) => total + transaction.amount, 0);
+                    // Calculate the total amount of all transactions
+                    const totalAmount = transactions.reduce((total, transaction) => total + transaction.amount, 0);
 
-                // Subtract the total amount from the budget
-                const newBudget = budget - totalAmount;
+                    // Subtract the total amount from the budget
+                    const newBudget = budget - totalAmount;
 
-                // Check if the budget goes below zero
-                if (newBudget < 0) {
-                    console.warn('Budget is below zero!');
+                    // Check if the budget goes below zero
+                    if (newBudget < 0) {
+                        console.warn('Budget is below zero!');
+                    }
+
+                    setBudget(newBudget);
+                } else {
+                    console.error('Error: transactions data is not an array');
                 }
-
-                setBudget(newBudget);
             })
             .catch(error => {
                 console.error('Error fetching transactions', error);
